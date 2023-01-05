@@ -13,6 +13,9 @@ export default function CartItem({item, dispatch}: {item: Cart, dispatch: (actio
     const handleValidation = (value: string) => {
         const parsedValue = Number.parseInt(value);
         const response = [];
+        if (parsedValue === 0) {
+            response.push(`La cantidad debe ser superior a 0`);
+        }
         if (parsedValue > item.copies) {
             response.push(`La cantidad supera al limite disponible ${item.copies}`);
         }
