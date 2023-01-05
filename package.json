@@ -2,6 +2,11 @@
   "name": "musicla-next",
   "version": "0.1.2",
   "private": true,
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,7 +14,7 @@
     "lint": "next lint",
     "prepare": "husky install",
     "release": "standard-version",
-    "test": ""
+    "test": "echo \"Error: no test specified\""
   },
   "dependencies": {
     "@next/font": "13.1.1",
@@ -35,6 +40,7 @@
     "@types/jsdom": "^20.0.1",
     "@types/marked": "^4.0.8",
     "husky": "^8.0.2",
-    "standard-version": "^9.5.0"
+    "standard-version": "^9.5.0",
+    "ts-node": "^10.9.1"
   }
 }
