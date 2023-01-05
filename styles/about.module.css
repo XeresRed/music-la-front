@@ -1,0 +1,32 @@
+.grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    flex-basis: 45%;
+    gap: 2rem;
+}
+
+.grid img {
+    border-radius: 1.5rem;
+    margin: auto;
+    width: 100%;
+    height: auto;
+}
+
+.description p {
+    color: var(--color-font-secodary);
+    text-align: justify;
+    font-size: 1.34rem;
+}
+
+@media screen and (min-width: 1000px) {
+    .grid {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-grow: 1;
+        flex-basis: 45%;
+        gap: 2rem;
+    }
+}

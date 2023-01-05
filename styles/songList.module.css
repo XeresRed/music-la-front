@@ -1,0 +1,17 @@
+.list {
+    list-style: none;
+    
+}
+
+.listItem {
+    display: flex;
+    justify-content: space-between;
+}
+
+.imgItem {
+    object-fit: contain;
+}
+
+.listenApp {
+    justify-self: flex-end;
+}

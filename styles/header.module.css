@@ -1,0 +1,86 @@
+
+.header::after {
+    position: relative;
+    backdrop-filter: blur(3.5px);
+    -webkit-backdrop-filter: blur(3.5px);
+}
+.header {
+    background-color: var(--header);
+}
+
+.mainContainer {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.logoImage {
+    height: auto;
+    aspect-ratio: 5/3;
+    mix-blend-mode: multiply;
+}
+
+
+.cart {
+    aspect-ratio: 5/3;
+    mix-blend-mode: exclusion;
+}
+
+.navBar {
+    display: flex;
+    align-self: center;
+    flex-direction: row;
+    padding: 0rem 2rem;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.navBar a {
+    font-size: 1.2rem;
+    padding: 0 1.3rem;
+    margin: 0.3rem 0.2rem;
+    color: var(--primary);
+    font-weight: bold;
+    border-radius: 1.5rem;
+    transition: background-color 150ms, color 150ms;
+}
+
+.navBar a:hover {
+    background-color: #6D67E4;
+}  
+
+.active {
+    background-color: #6D67E4;
+    color: var(--secondary);
+}  
+
+
+
+@media screen and (min-width: 768px) {
+    .mainContainer {
+        /* From https://css.glass */
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .navBar {
+        display: flex;
+        justify-self: flex-end;
+        flex-direction: column;
+        padding: 0.2rem 0;
+        align-content: space-around;
+        width: fit-content;
+    }
+
+    .navBar a {
+        font-size: 1.4rem;
+        padding: 0.5rem 1.3rem;
+        margin: 0.3rem 0.2rem;
+    }
+
+}

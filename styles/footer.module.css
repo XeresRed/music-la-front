@@ -1,0 +1,21 @@
+.navBar {
+    display: flex;
+    align-self: center;
+    flex-direction: row;
+    padding: 0rem 2rem;
+    justify-content: space-between;
+    width: fit-content;
+}
+
+.navBar a {
+    font-size: 1.34rem;
+    padding: 0.5rem 0.3rem;
+    color: var(--color-font-primary);
+    font-weight: bold;
+    border-radius: 1.5rem;
+}
+
+.navBar a:not(:last-child)::after {
+    content: '|';
+    margin: 0rem 1rem;
+}

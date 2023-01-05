@@ -1,0 +1,39 @@
+.container {
+    background-color: white;
+    border-radius: 1.5rem;
+    display: flex;
+    gap: 2rem;
+    height: 20rem;
+    padding: 1.5rem;
+    color: #323232;
+    margin: 0 1rem 1rem 1rem;
+}
+
+.container img {
+    border-radius: 1.5rem;
+    height: auto;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.btn-eliminar {
+    border: 1px solid #FF6464;
+    font-weight: bold;
+    border-radius: 1.5rem;
+    padding: .9rem 2rem;
+    color: azure;
+    background-color: #FF6464;
+    transition: background-color 250ms, border 250ms, color  250ms;
+}
+
+.btn-eliminar:hover {
+    border: 1px solid #FF6464;
+    color: #FF6464;
+    background-color: white;
+    cursor: pointer;
+}
