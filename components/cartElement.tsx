@@ -54,8 +54,8 @@ export default function CartItem({item, dispatch}: {item: Cart, dispatch: (actio
             />
             <div className={styles.description}>
                 <h1>{item.name}</h1>
-                <div style={{display: 'flex', flexDirection: 'row'}}>
-                    <h2>{numberFormat1.format(item.price)} X</h2>
+                <div className={styles.price} style={{}}>
+                    <h2 style={{margin: '0'}}>{numberFormat1.format(item.price)} X</h2>
                     <SelectQuantity value={item.quantity} updateInput={handleUpdateQuantity} validation={handleValidation}/>
                 </div>
                 

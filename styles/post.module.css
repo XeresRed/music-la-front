@@ -1,0 +1,31 @@
+.grid {
+    border-bottom: 1px solid white;
+    padding-bottom: 1rem;
+}
+
+.article-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.article-grid img {
+    border-radius: 1.5rem;
+    height: auto;
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .grid {
+        padding-bottom: 2rem;
+    }
+    .article-grid {
+        flex-direction: row;
+        gap: 2.5rem;
+    }
+    .article-grid img {
+        border-radius: 1.5rem;
+        height: auto;
+        width: 40rem;
+    }
+}
