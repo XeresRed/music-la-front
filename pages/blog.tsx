@@ -23,6 +23,13 @@ export default function Blog({posts}: IBlogProps) {
   );
 }
 
+export async function getStaticPaths() {
+  return {
+    paths: [],
+    fallback: false, // can also be true or 'blocking'
+  }
+}
+
 export async function getStaticProps() {
   /* const response = await fetch(`${process.env.API_URL}/posts?populate=cover`);
   const { data: posts } = await response.json(); */
