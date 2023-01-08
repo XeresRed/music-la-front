@@ -9,6 +9,8 @@ import Layout from '../../layout/layout';
 import { IAlbum } from '../../models/albums.models';
 import styles from '../../styles/albumDescription.module.css';
 import { marked } from 'marked';
+import client from '../../apollo-client';
+import { getAlbum } from '../../models/queries';
 
 export default function AlbumDescription({albumInfo}: {albumInfo: IAlbum}) {
     const { dispatch } = useContext(RootContext);
@@ -39,7 +41,7 @@ export default function AlbumDescription({albumInfo}: {albumInfo: IAlbum}) {
 
     return (
         <Layout title={albumInfo.attributes?.albumName}>
-            <main>
+           { albumInfo.attributes && (<main>
                 <button onClick={() => router.back()} className="back-button">Volver</button>
                 <div className={styles.content}>
                     <Image src={albumInfo.attributes.cover.data.attributes.url} alt='cover-album' width={300} height={300} className={`${styles.shadowPopBl} ${styles.contentImg}`}/>
@@ -57,17 +59,28 @@ export default function AlbumDescription({albumInfo}: {albumInfo: IAlbum}) {
                     </div>
                 </div>
                 
-            </main>
+            </main>)}
         </Layout>
     )
 }
 
 export const getServerSideProps: GetServerSideProps<{}> =  async (context) => {
-    const response = await fetch(`${process.env.API_URL}/albums?filters[url]=${context.query.url}&populate=cover,songs` );
-    const {data: albumInfo} = await response.json();
+    /* const response = await fetch(`${process.env.API_URL}/albums?filters[url]=${context.query.url}&populate=cover,songs` );
+    const {data: albumInfo} = await response.json(); */
+    
+    const {data: {albums}} = await client.query({
+        query: getAlbum,
+        variables: {
+            "albumId": {
+              "url": {
+                "eq": context.query.url
+              }
+            }
+          }
+    });
     return {
         props: {
-            albumInfo: albumInfo[0]
+            albumInfo: albums.data[0]
         }
     }
 }

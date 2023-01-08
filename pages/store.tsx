@@ -3,6 +3,8 @@ import styles from "../styles/store.module.css";
 import AlbumList from "../components/albumList";
 import React from "react";
 import { IAlbum } from "../models/albums.models";
+import client from "../apollo-client";
+import { getAllAlbums } from "../models/queries";
 
 export default function Store({albumData}: {albumData: IAlbum[]}) {
   return (
@@ -34,13 +36,14 @@ export default function Store({albumData}: {albumData: IAlbum[]}) {
 
 // Se hace el llamado cada que un usuario entre a consultarla
 export async function getServerSideProps() {
-  const response = await fetch(`${process.env.API_URL}/albums?populate=cover`);
-  const {data: albumData, meta} = await response.json();
-
+/*   const response = await fetch(`${process.env.API_URL}/albums?populate=cover`);
+  const {data: albumData, meta} = await response.json(); */
+  const { data } = await client.query({
+    query: getAllAlbums
+  });
   return {
     props: {
-        albumData,
-        ...meta,
-      }
-    };
+      albumData: data.albums.data,
+    }
+  };
 }

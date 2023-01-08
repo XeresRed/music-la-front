@@ -1,6 +1,8 @@
+import client from "../apollo-client";
 import Post from "../components/post";
 import Layout from "../layout/layout";
 import { IPost } from "../models/post.model";
+import { getAllPosts } from "../models/queries";
 
 interface IBlogProps {
   posts: IPost[]
@@ -22,12 +24,14 @@ export default function Blog({posts}: IBlogProps) {
 }
 
 export async function getStaticProps() {
-  const response = await fetch(`${process.env.API_URL}/posts?populate=cover`);
-  const { data: posts } = await response.json();
-
+  /* const response = await fetch(`${process.env.API_URL}/posts?populate=cover`);
+  const { data: posts } = await response.json(); */
+  const {data: {posts}} = await client.query({
+    query: getAllPosts,
+  });
   return {
     props: {
-      posts,
+      posts: posts.data,
     },
   };
 }
